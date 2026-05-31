@@ -22,7 +22,7 @@ const socials = [
   { name: 'Facebook', icon: '/images/Facebook.png', href: 'https://facebook.com/leparfum.ai' },
   { name: 'TikTok', icon: '/images/tictoc.png', href: 'https://tiktok.com/@leparfum.ai' },
   { name: 'X', icon: '/images/x.png', href: 'https://x.com/leparfum_ai' },
-  { name: 'LinkedIn', icon: '/images/linkedin.png', href: 'https://linkedin.com/company/leparfum-ai' },
+  { name: 'LinkedIn', icon: '/images/Linkedin.png', href: 'https://linkedin.com/company/leparfum-ai' },
 ]
 
 export default function Footer() {
