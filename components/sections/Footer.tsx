@@ -52,7 +52,7 @@ export default function Footer() {
       <div className="my-8 h-px w-full bg-ash" />
 
       <div className="flex items-center justify-between">
-        <p className="p2 text-ink">© 2025 leparfum.ai. All rights reserved.</p>
+        <p className="p2 text-ink">© 2026 leparfum.ai. All rights reserved.</p>
 
       <div className="flex items-center gap-4">
   {socials.map((s) => (
