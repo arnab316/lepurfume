@@ -31,7 +31,7 @@ export default function ArrowButton({
     <button
       onClick={onClick}
       aria-label={`${direction} arrow`}
-      className={`group inline-flex h-12 w-12 items-center justify-center rounded-full border transition-colors ${ring} ${className}`}
+      className={`group inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full border transition-colors ${ring} ${className}`}
     >
       <svg
         width="20"
