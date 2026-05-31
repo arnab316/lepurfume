@@ -1,41 +1,74 @@
 # leparfum.ai
 
-Bespoke fragrance landing page — Next.js 14 (App Router) + Tailwind CSS + Framer Motion.
+Bespoke fragrance landing page built with Next.js 14 (App Router), Tailwind CSS and Framer Motion.
 
-## Setup
+## Getting started
 
 ```bash
 npm install
 npm run dev
 ```
 
-Visit `http://localhost:3000` — it redirects to `/information`.
+Open `http://localhost:3000` — the root redirects to `/information`.
 
-## Assets needed
+## Folder structure
 
-### Videos → `public/videos/`
+## Assets
+
+Drop the files into the matching folders — filenames must be exact.
+
+### Videos — `public/videos/`
+
+Hero section:
 - `hero-1.mp4` — main hero background
 - `hero-2.mp4` — second hero slide
-- `card-broken-gift.mp4` — Broken Gift card
-- `card-solution.mp4` — The Solution card
-- `card-experience.mp4` — The Experience card
-- `card-legacy.mp4` — The Legacy card
-- `step-01.mp4` — How It Works step 1
-- `step-02.mp4` — How It Works step 2
-- `step-03.mp4` — How It Works step 3
-- `world-weddings.mp4` — Weddings panel
-- `world-corporate.mp4` — Corporate panel
-- `world-hospitality.mp4` — Hospitality panel
 
-### Images → `public/images/`
-12 bottle images: `bottle-red.jpg`, `bottle-glitter.jpg`, `bottle-romantic.jpg`, `bottle-desert.jpg`, `bottle-beach.jpg`, `bottle-floral.jpg`, `bottle-moonlit.jpg`, `bottle-tropical.jpg`, `bottle-rainy.jpg`, `bottle-warm.jpg`, `bottle-cosmic.jpg`, `bottle-jungle.jpg`
+Scrolling card section (auto-rotates every 4s):
+- `card-broken-gift.mp4`
+- `card-solution.mp4`
+- `card-experience.mp4`
+- `card-legacy.mp4`
+
+How It Works (sticky scroll steps):
+- `step-01.mp4`
+- `step-02.mp4`
+- `step-03.mp4`
+
+Choose Your World (expanding panels):
+- `world-weddings.mp4`
+- `world-corporate.mp4`
+- `world-hospitality.mp4`
+
+> Note: if you only have images instead of videos for some sections, the components for Scrolling Card / How It Works / Choose Your World accept image paths too. Just point them at `/images/...jpg` and they fall back to background images.
+
+### Images — `public/images/`
+
+Bottles for the Uniquely Bottled ring (12 used in rotation):
+
+`bottle-red.jpg`, `bottle-glitter.jpg`, `bottle-romantic.jpg`, `bottle-desert.jpg`, `bottle-beach.jpg`, `bottle-floral.jpg`, `bottle-moonlit.jpg`, `bottle-tropical.jpg`, `bottle-rainy.jpg`, `bottle-warm.jpg`, `bottle-cosmic.jpg`, `bottle-jungle.jpg`
+
+Other:
+- `logo.png` — footer + navbar logo
+- `Instagram.png`, `Facebook.png`, `tictoc.png`, `x.png`, `linkedin.png` — social icons
 
 ## Animations
 
-- **Hero** — parallax scroll (text fades out, video drifts up)
-- **Scrolling Card** — video crossfade between slides
-- **How It Works** — sticky scroll with progress dot moving down center line
-- **Choose Your World** — horizontal expanding panels on hover
-- **Uniquely Bottled** — floating drifting bottles
-- **FAQs** — hover progress bar + accordion expand
-- **Testimonials** — sliding carousel
+| Section          | What happens                                                           |
+| ---------------- | ---------------------------------------------------------------------- |
+| Hero             | Parallax — text fades and drifts down, video drifts up as you scroll   |
+| Scrolling Card   | Auto-rotates every 4s, crossfade between slides, dot pagination        |
+| How It Works     | Sticky scroll — progress dot slides down the center line, steps fade   |
+| Choose Your World | Panels expand on hover, body text + arrow reveal on the active panel  |
+| Uniquely Bottled | Bottles orbit in an elliptical ring around the center text             |
+| Testimonials     | Continuous marquee (loops forever, optional pause on hover)            |
+| FAQs             | Questions cascade in on scroll, hover line, accordion open/close       |
+
+## Font
+
+Uses **Share Tech Mono** via `next/font/google` as a free stand-in for Andale Mono. Swap it in `app/layout.tsx` if you license the real Andale Mono later.
+
+## Notes
+
+- All section files are in `components/sections/` — edit any one without touching the others.
+- Tailwind tokens (colors like `ink`, `cream`, `smoke`, `ash`, `sand`, `sky`) live in `tailwind.config.ts`.
+- Animations use Framer Motion's `useScroll` for parallax/sticky-scroll and `motion` components for everything else.

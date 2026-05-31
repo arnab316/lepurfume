@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-mono: var(--font-andale), 'Courier New', monospace;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-mono bg-white text-ink antialiased;
+    overflow-x: hidden;
+  }
+}
+
+@layer components {
+  .h1 {
+    @apply text-[48px] leading-[130%] uppercase font-normal tracking-tight5;
+  }
+  .h2 {
+    @apply text-[36px] leading-[130%] uppercase font-normal tracking-tight5;
+  }
+  .h3 {
+    @apply text-[32px] leading-[130%] uppercase font-normal tracking-tight5;
+  }
+  .h4 {
+    @apply text-[24px] leading-[120%] uppercase font-normal tracking-tight5;
+  }
+  .h5 {
+    @apply text-[18px] leading-[120%] uppercase font-normal tracking-tight5;
+  }
+  .p1 {
+    @apply text-[16px] leading-[130%] font-normal tracking-tight5;
+  }
+  .p2 {
+    @apply text-[13px] leading-[130%] font-normal tracking-tight5;
+  }
+  .caption {
+    @apply text-[12px] leading-[110%] uppercase font-normal tracking-tight3;
+  }
+  .btn-label {
+    @apply text-[12px] leading-[100%] uppercase font-bold tracking-tight2;
+  }
+}
