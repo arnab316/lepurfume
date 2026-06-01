@@ -35,15 +35,17 @@ const cards = [
 export default function ScrollingCard() {
   const [active, setActive] = useState(0)
   const card = cards[active]
-    useEffect(() => {
+
+  useEffect(() => {
     const timer = setInterval(() => {
       setActive((i) => (i + 1) % cards.length)
     }, 4000)
     return () => clearInterval(timer)
   }, [])
+
   return (
-    <section className="w-full bg-white px-16 py-8">
-      <div className="relative h-[722px] w-full overflow-hidden rounded-2xl bg-cream">
+    <section className="w-full bg-white px-4 py-6 md:px-16 md:py-8">
+      <div className="relative h-[560px] w-full overflow-hidden rounded-2xl bg-cream md:h-[722px]">
         <AnimatePresence mode="sync">
           <motion.div
             key={card.image}
@@ -56,10 +58,9 @@ export default function ScrollingCard() {
           />
         </AnimatePresence>
 
-        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/20 md:via-black/30 md:to-transparent" />
 
-
-        <div className="absolute left-16 top-1/2 z-10 flex w-[477px] -translate-y-1/2 flex-col gap-8">
+        <div className="absolute left-6 right-6 top-1/2 z-10 flex max-w-[477px] -translate-y-1/2 flex-col gap-6 md:left-16 md:right-auto md:w-[477px] md:gap-8">
           <AnimatePresence mode="wait">
             <motion.div
               key={card.title}
@@ -69,14 +70,18 @@ export default function ScrollingCard() {
               transition={{ duration: 0.5 }}
               className="flex flex-col gap-2"
             >
-              <h2 className="h2 text-white">{card.title}</h2>
-              <p className="p1 text-white">{card.body}</p>
+              <h2 className="text-[24px] font-normal uppercase leading-[130%] tracking-tight5 text-white md:text-[36px]">
+                {card.title}
+              </h2>
+              <p className="text-[14px] leading-[140%] tracking-tight5 text-white md:text-[16px] md:leading-[130%]">
+                {card.body}
+              </p>
             </motion.div>
           </AnimatePresence>
 
           <div className="flex items-end gap-2">
             <ArrowButton variant="filled-light" />
-            <div className="flex w-[323px] flex-col gap-1">
+            <div className="flex w-full max-w-[323px] flex-col gap-1">
               <span className="caption text-white/70">{card.label}</span>
               <div className="flex h-12 items-center justify-end rounded border border-ash/80 px-3">
                 <ArrowButton variant="outline-light" />
@@ -85,7 +90,7 @@ export default function ScrollingCard() {
           </div>
         </div>
 
-        <div className="absolute bottom-9 left-16 z-10">
+        <div className="absolute bottom-6 left-6 z-10 md:bottom-9 md:left-16">
           <DotPagination count={cards.length} active={active} onChange={setActive} />
         </div>
       </div>

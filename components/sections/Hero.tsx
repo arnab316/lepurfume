@@ -39,7 +39,7 @@ export default function Hero() {
   const next = () => setActive((i) => (i + 1) % slides.length)
 
   return (
-    <section ref={ref} className="relative h-screen min-h-[800px] w-full overflow-hidden bg-ink">
+    <section ref={ref} className="relative h-screen min-h-[600px] w-full overflow-hidden bg-ink md:min-h-[800px]">
       <motion.div style={{ y: videoY }} className="absolute -inset-y-32 inset-x-0 z-0">
         <video
           key={slide.video}
@@ -58,28 +58,31 @@ export default function Hero() {
 
       <Navbar />
 
-      <div className="absolute left-[60px] top-1/2 z-20 -translate-y-1/2">
-        {/* <DotPagination count={5} active={active % 5} vertical onChange={setActive} /> */}
+      <div className="absolute left-4 top-1/2 z-20 -translate-y-1/2 md:left-[60px]">
         <DotPagination count={slides.length} active={active} vertical onChange={setActive} />
       </div>
 
-      <div className="absolute right-[60px] top-1/2 z-20 flex -translate-y-1/2 flex-col gap-4">
+      <div className="absolute right-4 top-1/2 z-20 flex -translate-y-1/2 flex-col gap-4 md:right-[60px]">
         <ArrowButton direction="left" variant="outline-light" onClick={prev} />
         <ArrowButton direction="right" variant="filled-light" onClick={next} />
       </div>
 
       <motion.div
         style={{ y: textY, opacity: textOpacity }}
-        className="absolute inset-x-0 bottom-[80px] z-10 px-32"
+        className="absolute inset-x-0 bottom-[40px] z-10 px-6 md:bottom-[80px] md:px-32"
       >
-        <div className="flex flex-col gap-8">
+        <div className="flex flex-col gap-6 md:gap-8">
           <div className="flex flex-col gap-2">
-            <h1 className="h2 text-white">{slide.heading}</h1>
-            <h2 className="h2 text-haze">{slide.sub}</h2>
+            <h1 className="text-[28px] font-normal uppercase leading-[130%] tracking-tight5 text-white md:text-[36px]">
+              {slide.heading}
+            </h1>
+            <h2 className="text-[20px] font-normal uppercase leading-[130%] tracking-tight5 text-haze md:text-[36px]">
+              {slide.sub}
+            </h2>
           </div>
 
-          <div className="flex items-end justify-between">
-            <p className="p1 max-w-[378px] text-white">{slide.body}</p>
+          <div className="flex flex-col items-start gap-6 md:flex-row md:items-end md:justify-between">
+            <p className="p1 max-w-full text-white md:max-w-[378px]">{slide.body}</p>
             <button onClick={next} className="group flex items-center gap-2">
               <span className="btn-label text-[13px] text-white">Begin the journey</span>
               <span className="h-[7px] w-[7px] rounded-full bg-white transition-transform group-hover:scale-125" />

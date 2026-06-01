@@ -31,9 +31,9 @@ export default function FAQs() {
   const [hover, setHover] = useState<number | null>(null)
 
   return (
-    <section className="w-full bg-ink px-16 py-20">
-      <div className="rounded-2xl bg-white p-20">
-        <div className="grid grid-cols-[1fr_2fr] gap-16">
+    <section className="w-full bg-ink px-4 py-12 md:px-16 md:py-20">
+      <div className="rounded-2xl bg-white p-6 md:p-20">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-[1fr_2fr] md:gap-16">
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -73,15 +73,17 @@ export default function FAQs() {
 
                 <button
                   onClick={() => setOpen(open === i ? null : i)}
-                  className="flex w-full items-center justify-between gap-16 py-6 text-left"
+                  className="flex w-full items-center justify-between gap-4 py-5 text-left md:gap-16 md:py-6"
                 >
-                  <span className="h5 text-ink">{faq.q}</span>
-                  <span className="relative flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-smoke">
-                    <span className="block h-px w-4 bg-ink" />
+                  <span className="text-[14px] font-normal uppercase leading-[130%] tracking-tight5 text-ink md:text-[18px] md:leading-[120%]">
+                    {faq.q}
+                  </span>
+                  <span className="relative flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-smoke md:h-12 md:w-12">
+                    <span className="block h-px w-3 bg-ink md:w-4" />
                     <motion.span
                       animate={{ rotate: open === i ? 0 : 90 }}
                       transition={{ duration: 0.3 }}
-                      className="absolute block h-px w-4 bg-ink"
+                      className="absolute block h-px w-3 bg-ink md:w-4"
                     />
                   </span>
                 </button>
@@ -95,7 +97,9 @@ export default function FAQs() {
                       transition={{ duration: 0.4 }}
                       className="overflow-hidden"
                     >
-                      <p className="p1 max-w-[600px] pb-6 text-smoke">{faq.a}</p>
+                      <p className="max-w-[600px] pb-5 text-[14px] leading-[140%] tracking-tight5 text-smoke md:pb-6 md:text-[16px] md:leading-[130%]">
+                        {faq.a}
+                      </p>
                     </motion.div>
                   )}
                 </AnimatePresence>
