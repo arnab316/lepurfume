@@ -27,7 +27,7 @@ const bottles = [
   '/images/bottle1.jpg',
 ]
 
-const ORBIT_RADIUS = 390
+const ORBIT_RADIUS = 320
 
 export default function UniquelyBottled() {
   return (
